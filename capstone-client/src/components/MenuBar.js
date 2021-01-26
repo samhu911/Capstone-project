@@ -16,7 +16,20 @@ function MenuBar() {
   const menuBar = user ? (
     <Menu pointing secondary size="massive" color="teal">
       <Menu.Item name={user.username} active as={Link} to="/" />
-
+      <Menu.Item
+        name="ApexTracker"
+        active={activeItem === 'ApexTracker'}
+        onClick={handleItemClick}
+        as={Link}
+        to="/ApexTracker"
+      />
+      <Menu.Item
+        name="ApexNews"
+        active={activeItem === 'ApexNews'}
+        onClick={handleItemClick}
+        as={Link}
+        to="/ApexNews"
+      />
       <Menu.Menu position="right">
         <Menu.Item name="logout" onClick={logout} />
       </Menu.Menu>
@@ -30,6 +43,7 @@ function MenuBar() {
         as={Link}
         to="/"
       />
+      
 
       <Menu.Menu position="right">
         <Menu.Item
