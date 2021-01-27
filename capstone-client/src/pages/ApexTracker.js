@@ -19,6 +19,7 @@ export default function ApexTracker() {
 
     const handleSubmit = async (event) => {
         console.log("This is data:", data)
+        event.preventDefault();
         try {
             event.preventDefault();
             const results = await axios(
@@ -27,14 +28,19 @@ export default function ApexTracker() {
             )
             console.log(results)
             // const totalKills = results.data.total.kills;
+            // All pieces  of collected data from the API are stored in the data state
             const numericalRank = results.data.global.rank.rankScore;
             const rankName = results.data.global.rank.rankName;
             const rankImg = results.data.global.rank.rankImg;
-            const selectedCharacter = results.data.legends.selected.ImgAssets.icon
-            const selectedLegendName = results.data.legends.selected.LegendName
-            setData([numericalRank, rankName, rankImg, selectedCharacter, selectedLegendName]);
+            const selectedCharacter = results.data.legends.selected.ImgAssets.icon;
+            const selectedLegendName = results.data.legends.selected.LegendName;
+            const totalKills = results.data.total.kills.value;
+            const playerLevel = results.data.global.level;
+            // const totalDmg = results.data.total.damage.value;
+            // const top3 = results.data.total.top_3.value;
+            setData([numericalRank, rankName, rankImg, selectedCharacter, selectedLegendName, totalKills, playerLevel]);
             setLoadStats(true);
-            console.log(data)
+            
         } catch (error) {
             console.log(error);
         }
@@ -47,8 +53,10 @@ export default function ApexTracker() {
             <Card.Header>{userSearch}</Card.Header>
             <Card.Meta>Platform: {platformSearch}</Card.Meta>
             <Card.Description>
+                <h3>Rank:<img src={data[2]}  alt="Competitve Rank"/> {data[0]}</h3>
+                <h4>Player Level: {data[6]}</h4>
                 <h4>Selected Legend: {data[4]}</h4>
-                <h3>Rank:<img src={data[2]} /> {data[0]}</h3>
+                <h4>Lifetime Kills: {data[5]}</h4>
                 
             </Card.Description>
         </Card.Content>

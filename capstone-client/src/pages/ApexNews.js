@@ -23,7 +23,7 @@ export default function ApexNews() {
             }
         }
         fetchData();
-    }, []);
+    }, [data]);
 
     const renderNews = () => {
         return data.map(news => {
