@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 import { Button, Form } from 'semantic-ui-react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -29,21 +30,23 @@ function PostForm() {
 
   return (
     <>
+      <h2 className="text-center">Create a post:</h2>
       <Form onSubmit={onSubmit}>
-        <h2>Create a post:</h2>
+        
         <Form.Field>
           <Form.Input
-            placeholder="Hi World!"
+            placeholder="Group with me?"
             name="body"
             onChange={onChange}
             value={values.body}
             error={error ? true : false}
           />
-          <Button type="submit" color="teal">
-            Submit
+          <Button type="submit" color="red">
+            Post
           </Button>
         </Form.Field>
       </Form>
+      
       {error && (
         <div className="ui error message" style={{ marginBottom: 20 }}>
           <ul className="list">

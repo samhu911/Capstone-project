@@ -74,6 +74,7 @@ export default function ApexTracker() {
                 <Form  inverted>
                     <Form.Group widths='equal'>
                         <Form.Input onChange={handlePlatformSearch} fluid label='Platform (PC, X1, PS4)' placeholder='PC, X1, PS4' />
+                        
                         <Form.Input onChange={handleUserSearch} fluid label='Gamertag' placeholder='CoolGuy123' />
                     </Form.Group>
 

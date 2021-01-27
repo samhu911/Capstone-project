@@ -18,19 +18,21 @@ import ApexNews from './pages/ApexNews';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Container>
-          <MenuBar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/ApexTracker" component={ApexTracker} />
-          <Route exact path="/ApexNews" component={ApexNews} />
-          <AuthRoute exact path="/login" component={Login} />
-          <AuthRoute exact path="/register" component={Register} />
-          <Route exact path="/posts/:postId" component={SinglePost} />
-        </Container>
-      </Router>
-    </AuthProvider>
+    <div>
+      <AuthProvider>
+        <Router>
+          <Container>
+            <MenuBar />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/ApexTracker" component={ApexTracker} />
+            <Route exact path="/ApexNews" component={ApexNews} />
+            <AuthRoute exact path="/login" component={Login} />
+            <AuthRoute exact path="/register" component={Register} />
+            <Route exact path="/posts/:postId" component={SinglePost} />
+          </Container>
+        </Router>
+      </AuthProvider>
+    </div>
   );
 }
 
